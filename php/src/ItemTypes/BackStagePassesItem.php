@@ -14,9 +14,7 @@ class BackStagePassesItem extends AbstractItem
             return;
         }
 
-        if ($this->item->quality < 50) {
-            $this->item->quality = $this->item->quality + 1;
-        }
+        $this->item->quality = $this->item->quality + 1;
 
         if ($this->item->sell_in <= 10) {
             $this->item->quality = $this->item->quality + 1;

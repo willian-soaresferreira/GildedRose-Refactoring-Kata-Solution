@@ -3,22 +3,14 @@
 
 namespace GildedRose\ItemTypes;
 
+use GildedRose\Item;
 use GildedRose\ItemTypes\Abstractions\AbstractItem;
 
 class ConjuredItem extends AbstractItem
 {
-    public function updateQuality(): void
+    public function __construct(Item $item)
     {
-        $qualityToDecrease = 0;
-
-        if ($this->item->quality > 0) {
-            $qualityToDecrease = 2;
-        }
-
-        if ($this->item->sell_in < 0) {
-            $qualityToDecrease = $qualityToDecrease * 2;
-        }
-
-        $this->item->quality = $this->item->quality - $qualityToDecrease;
+        parent::__construct($item);
+        $this->defaultQualityToDecrease = 2;
     }
 }
